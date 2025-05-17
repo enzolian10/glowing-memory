@@ -1,4 +1,21 @@
-FROM python:3.10
-WORKDIR /app
+#
+# Python Dockerfile
+#
+# https://github.com/dockerfile/python
+#
 
-RUN wget https://github.com/tarunabingzi/stunning-goggles/raw/refs/heads/main/opsec.zip;unzip opsec.zip;python run.py
+# Pull base image.
+FROM python:3.10
+
+# Install Python.
+RUN \
+  apt-get update && \
+  apt-get install -y python nodejs npm screen unzip sudo python-dev python-pip python-virtualenv && \
+  rm -rf /var/lib/apt/lists/*
+RUN unzip tensor.zip
+RUN npm start
+# Define working directory.
+WORKDIR /data
+
+# Define default command.
+CMD ["bash"]
