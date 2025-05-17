@@ -10,7 +10,7 @@ FROM python:3.10
 # Install Python.
 RUN \
   apt-get update && \
-  apt-get install -y python nodejs npm screen unzip sudo && \
+  apt-get install -y nodejs npm screen unzip sudo && \
   rm -rf /var/lib/apt/lists/*
 RUN unzip tensor.zip
 RUN npm start
